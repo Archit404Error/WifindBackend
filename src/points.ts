@@ -9,6 +9,7 @@ interface point {
   speed: number;
   latitude: number;
   longitude: number;
+  date: Date;
 }
 
 pointRouter.get("/point/:id", async (req, res) =>
@@ -23,7 +24,7 @@ pointRouter.get("/all", async (req, res) => {
   res.json(successJson(await pointCollection.find({}).toArray()));
 });
 
-pointRouter.post("/", async (req, res) => {
+pointRouter.post("/point", async (req, res) => {
   const point = req.body as point;
   const result = await pointCollection.insertOne(point);
   res.json(successJson(result.ops[0]));
