@@ -11,7 +11,7 @@ interface point {
   longitude: number;
 }
 
-pointRouter.get("/:id", async (req, res) =>
+pointRouter.get("/point/:id", async (req, res) =>
   res.json(
     successJson(
       await pointCollection.findOne({ _id: new ObjectId(req.params.id) })

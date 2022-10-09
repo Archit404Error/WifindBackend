@@ -15,7 +15,7 @@ const mongodb_1 = require("mongodb");
 const _1 = require(".");
 const helpers_1 = require("./helpers");
 exports.pointRouter = (0, express_1.Router)();
-exports.pointRouter.get("/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.pointRouter.get("/point/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     return res.json((0, helpers_1.successJson)(yield _1.pointCollection.findOne({ _id: new mongodb_1.ObjectId(req.params.id) })));
 }));
 exports.pointRouter.get("/all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
