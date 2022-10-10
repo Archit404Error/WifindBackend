@@ -34,7 +34,10 @@ pointRouter.post("/point", async (req, res) => {
  * Locate points close to given point, find avg speed, return value
  */
 pointRouter.post("/classify", async (req, res) => {
-  const toClassify = req.body as point;
+  const toClassify = {
+    latitude: req.body.latitude,
+    longitude: req.body.longitude,
+  };
   const closePoints = await pointCollection
     .find({
       latitude: {
