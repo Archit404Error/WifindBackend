@@ -21,12 +21,12 @@ exports.pointRouter.get("/point/:id", (req, res) => __awaiter(void 0, void 0, vo
 exports.pointRouter.get("/all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.json((0, helpers_1.successJson)(yield _1.pointCollection.find({}).toArray()));
 }));
-exports.pointRouter.post("/point", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+exports.pointRouter.post("/point", (req, res) => {
     req.body.date = new Date(req.body.date);
     const point = req.body;
-    const result = yield _1.pointCollection.insertOne(point);
-    res.json((0, helpers_1.successJson)(result.ops[0]));
-}));
+    _1.pointCollection.insertOne(point);
+    res.json((0, helpers_1.successJson)("Point added"));
+});
 /**
  * Locate points close to given point, find avg speed, return value
  */

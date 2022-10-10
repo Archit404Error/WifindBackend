@@ -1,10 +1,12 @@
 import express from "express";
 import cors from "cors";
+import bodyParser from "body-parser";
 import { MongoClient } from "mongodb";
 import { pointRouter } from "./points";
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 const client = new MongoClient(process.env.DB_URI as any);
 export var db: any, pointCollection: any;
 

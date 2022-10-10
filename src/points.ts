@@ -24,11 +24,11 @@ pointRouter.get("/all", async (req, res) => {
   res.json(successJson(await pointCollection.find({}).toArray()));
 });
 
-pointRouter.post("/point", async (req, res) => {
+pointRouter.post("/point", (req, res) => {
   req.body.date = new Date(req.body.date);
   const point = req.body as point;
-  const result = await pointCollection.insertOne(point);
-  res.json(successJson(result.ops[0]));
+  pointCollection.insertOne(point);
+  res.json(successJson("Point added"));
 });
 
 /**
