@@ -1,6 +1,6 @@
 const jsonRes = (res: any, data = {}, message = "success") => {
   return {
-    succes: res,
+    success: res,
     data: data,
     message: message,
   };
